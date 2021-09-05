@@ -23,7 +23,14 @@
       - CombineFilters
       - CollapseProject
       - BooleanSimplification
-  
+   
+   Commands:
+
+   - bin/spark-sql
+   - set spark.sql.planChangeLog.level=WARN;
+   - create table sales(customerId string, productName string, amountPaid int);
+   - select a.customerId from (select customerId, productName as pName, amountPaid from sales where 1 = “1” and amountPaid > 300) a where a.amountPaid < 500;
+
   Result:
   ![73BFAC86-6AE2-48D3-BF6A-C4F50E1F76D5](https://user-images.githubusercontent.com/11592423/132138146-6d489111-6b7c-4726-8424-f7a7ee116f1f.png)
   ![D7F7BAC8-C696-4766-96EB-C488F29733D3](https://user-images.githubusercontent.com/11592423/132138172-eeee58e5-ce85-4223-bc3c-7ec92b9f7e3d.png)
@@ -57,7 +64,6 @@ Commands:
 - bin/spark-sql
 - set spark.sql.planChangeLog.level=WARN;
 - create table sales(customerId string, productName string, amountPaid int);
-- create table sales(customerId string, amountPaid int, productName string);
 - (select a.productName , a.amountPaid + (10 + 20) , Now() z from (select distinct customerId, amountPaid , productName from sales) a where a.amountPaid>100 order by z) except (select customerId , amountPaid + (10 + 20) , Now() z from (select distinct customerId, amountPaid , productName from sales) );
 
 Result:
