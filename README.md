@@ -96,3 +96,7 @@ Result:
    }}}
    - 第三步 通过 spark.sql.extensions 提交
       - bin/spark-sql --jars my.jar --conf spark.sql.extensions=com.jikeshijian.MySparkSessionExtension
+  
+  Result:
+  ![A89E8A16-DA89-4609-AE84-71F3E4134142](https://user-images.githubusercontent.com/11592423/132241246-86d20a22-421a-4c77-94b2-ae664b737ed3.png)
+
