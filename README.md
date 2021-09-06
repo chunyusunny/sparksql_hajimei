@@ -83,7 +83,7 @@ Result:
 ![059ECA84-0FA0-435F-989D-9E304CF3BF26](https://user-images.githubusercontent.com/11592423/132137502-a5871fbd-f290-4077-a22d-5b3154798277.png)
 
 
-3. 实现自定义优化规则（静默规则） ->还没复(预)习到这，晚点更新
+3. 实现自定义优化规则（静默规则） 
    - 第一步 实现自定义规则（静默规则，通过 set spark.sql.planChangeLog.level=WARN;确认执行到就行）
       - case class MyPushDown(spark: SparkSession) extends Rule[LogicalPlan] {
    def apply(plan: LogicalPlan): LogicalPlan = plan transform { …. }
